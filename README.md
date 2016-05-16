@@ -1,149 +1,57 @@
-# Front-end Boilerplate
+# {{project-name}}
 
-> A scaffold for new front-end projects
+> {{description}}
 
-## Features
+## Project Overview
 
-- Streaming [build system](http://gulpjs.com/)
-- Dynamic [HTML templating](https://github.com/fbrctr/fabricator-assemble)
-- Sass [compilation](https://github.com/sass/node-sass), [vendor prefixing](https://github.com/postcss/autoprefixer), and [minification](https://github.com/ben-eb/cssnano)
-- JavaScript [module bundling](https://github.com/webpack/webpack), [optimization](https://github.com/mishoo/UglifyJS2), and [linting](http://eslint.org/)
-- Image [optimization](https://github.com/imagemin/imagemin)
-- Code formatting rules via [EditorConfig](http://editorconfig.org/) and [JS Beautifier](https://github.com/beautify-web/js-beautify)
-- Boilerplate README
-
-## Quick Start
-
-Scaffold a new project by running these commands:
-
-```
-$ curl -L https://github.com/dynamit/front-end-boilerplate/archive/master.tar.gz | tar zx --strip 1
-$ npm run setup
-```
-
-After the setup is compete, update the README with your project's info.
+{{project-overview}}
 
 
-## Local development
+## Usage
 
-Start a local development environment:
+This project was scaffolded using Dynamit's [front-end boilerplate](https://github.com/dynamit/front-end-boilerplate).
+
+### Local development
+
+Start the local development environment:
 
 ```
 $ npm start
 ```
 
-This will compile files, then watch for changes to recompile.
+### Build for distribution
 
-This will also start a server at [http://localhost:3000](http://localhost:3000) that will live-reload when changes are detected.
-
-## Build for distribution
+Generate an optimized build:
 
 ```
 $ npm run build
 ```
 
-In addition to the standard build tasks, this minifies CSS and uglifies JavaScript.
 
-## Configuration
+## Versioning
 
-Configuration values are defined in the `config` object in `gulpfile.babel.js`
+This project uses [semantic versioning](http://semver.org/). Use the following commands to version any updates to this codebase:
 
-Available options, with defaults shown:
+**Patch fixes:**
 
-```javascript
-templates: {
-	src: ['src/templates/**/*', '!src/templates/+(layouts|components)/**'],
-	dest: 'dist',
-	watch: ['src/templates/**/*', 'src/data/**/*.json'],
-	layouts: 'src/templates/layouts/*',
-	partials: ['src/templates/components/**/*'],
-	data: 'src/data/**/*.{json,yml}'
-},
-scripts: {
-	src: './src/assets/scripts/main.js',
-	dest: 'dist/assets/scripts',
-	watch: 'src/assets/scripts/**/*'
-},
-styles: {
-	src: 'src/assets/styles/main.scss',
-	dest: 'dist/assets/styles',
-	watch: 'src/assets/styles/**/*',
-	browsers: ['last 1 version']
-},
-images: {
-	src: 'src/assets/images/**/*',
-	dest: 'dist/assets/images',
-	watch: 'src/assets/images/**/*'
-}
+```
+$ npm version patch
 ```
 
-### Definitions
+**Minor update (backward-compatible features):**
 
-#### {task}.src 
- 
-Type: `String` or `Array`  
-Source files for task.
-
-#### {task}.dest
-
-Type: `String`  
-Output destination.
-
-#### {task}.watch
-
-Type: `String` or `Array`  
-Files that should trigger recompilation/reload when changed.
-
-### templates.layouts
-
-Type: `String` or `Array`  
-Layout templates.
-
-Layouts are wrappers for template content. Templates are inserted into layouts at the `{% body %}` tag.
-
-### templates.partials
-
-Type: `String` or `Array`  
-Partial templates.
-
-### templates.data
-
-Type: `String` or `Array`  
-Data that can be used when templating pages. Can be either JSON or YAML.
-
-### styles.browsers
-
-Type: `Array`  
-Value passed to [Autoprefixer](https://github.com/postcss/autoprefixer#browsers)
-
-## Template Assembly
-
-Templates are assembled using [fabricator-assemble](https://github.com/fbrctr/fabricator-assemble).
-
-There are number of [options](https://github.com/fbrctr/fabricator-assemble#options) available, particularly the ability to define your own Handlebars helpers.
-
-### Custom Helpers
-
-[Helpers](http://jaskokoyn.com/2013/08/08/custom-helpers-handlebars-js-tutorial/) can be define as a object, where the key is the name of the helper and the value is a function.
-
-```javascript
-assemble({
-	helpers: {
-	    markdown: require('helper-markdown'),
-	    foo: function () {
-	        return 'bar';
-	    }
-	}
-});
+```
+$ npm version minor
 ```
 
-## License
+**Major release (breaking changes):**
 
-The MIT License (MIT)
-Copyright (c) 2016 Dynamit
+```
+$ npm version major
+```
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+These commands will version the `package.json` and will create a tag in the git repository.
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+## Author
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Initial development for this project was done by {{author}}
