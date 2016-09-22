@@ -12,6 +12,7 @@ const runSequence = require('run-sequence');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const webpack = require('webpack');
+var Server = require('karma').Server;
 
 const reload = browserSync.reload;
 
@@ -49,6 +50,13 @@ const config = {
 // clean
 gulp.task('clean', del.bind(null, ['dist']));
 
+// tests
+gulp.task('test', function (done) {
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: false
+  }, done).start();
+});
 
 // templates
 gulp.task('templates', (done) => {
