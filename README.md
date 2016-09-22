@@ -137,7 +137,9 @@ assemble({
 });
 ```
 
-### Unit Testing
+## Unit Testing
+
+*make sure you've ran `npm install`*
 
 This version of the Front End Boilerplate is configured with Karma and Jasmime for unit testing. A sample test has been set up in `tests/addition.spec.js`. After you've create a JS module in `src/assets/scripts` and have imported it into `main.js`, you can create the module's matching `.spec.js` file under `tests/`.
 
