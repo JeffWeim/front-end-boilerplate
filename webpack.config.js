@@ -42,10 +42,14 @@ function getLoaders(isDev) {
 			loader: 'handlebars-loader'
 		},
 		{
-			test: /\.js$/,
-			include: path.join(__dirname, 'src'),
-			loaders: ['babel']
-		}
+	    test: /\.js$/, 
+	    include: [
+	    	path.join(__dirname, 'src'), 
+	    	path.join(__dirname, 'tests')
+	    ],
+	    exclude: /(node_modules)/,
+	    loader: 'babel'
+	  }
 	];
 
 	return loaders;
@@ -68,7 +72,7 @@ module.exports = function (config) {
 		resolve: {
 			extensions: ['', '.js', '.jsx', '.html']
 		},
-		devtool: '#inline-source-map',
+		devtool: config.dev ? '#inline-source-map' : '',
 		module: {
 			loaders: getLoaders(config.dev)
 		},

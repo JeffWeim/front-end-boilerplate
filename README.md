@@ -137,6 +137,14 @@ assemble({
 });
 ```
 
+### Unit Testing
+
+This version of the Front End Boilerplate is configured with Karma and Jasmime for unit testing. A sample test has been set up in `tests/addition.spec.js`. After you've create a JS module in `src/assets/scripts` and have imported it into `main.js`, you can create the module's matching `.spec.js` file under `tests/`.
+
+Once you've written your unit test, you can start the test by running the command: `karma start`
+
+After running your tests, coverage reporting will be available under `build/reports/coverage/report-html/index.html` (which you then open into a browser).
+
 ## License
 
 The MIT License (MIT)

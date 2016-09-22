@@ -1,5 +1,5 @@
 /**
- * Main scripts
+ * Main scripts - Import JS modules here:
  */
 
-console.log('Hello, World!');
+import addition from './addition';
