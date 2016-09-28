@@ -137,9 +137,13 @@ assemble({
 });
 ```
 
-## Unit Testing
+## PostCSS vs SASS
+The `gulpfile.js` includes two `styles` tasks; one for SASS compilation and one for [PostCSS](https://github.com/postcss/postcss) compilation. You may choose to use either processor by simple commenting out/deleting the one you do not want.
 
-*make sure you've ran `npm install`*
+*Note* Because this project is set up to use PostCSS out-of-the-box, if you'd rather use SASS, you must change the file extension of `src/assets/styles/main.css` to `src/assets/styles/main.scss`.
+
+
+## Unit Testing
 
 This version of the Front End Boilerplate is configured with Karma and Jasmime for unit testing. A sample test has been set up in `tests/addition.spec.js`. After you've create a JS module in `src/assets/scripts` and have imported it into `main.js`, you can create the module's matching `.spec.js` file under `tests/`.
 

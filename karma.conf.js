@@ -9,7 +9,8 @@ let webpack = require('karma-webpack'),
   webpackConfig = require('./webpack.config.js')(config);
 
 webpackConfig.module.postLoaders = [{
-  test: /\.(js|jsx)$/, exclude: /(node_modules|bower_components|tests)/,
+  test: /\.js$/, 
+  exclude: /(node_modules|tests)/,
   loader: 'istanbul-instrumenter'
 }];
 
@@ -82,8 +83,6 @@ module.exports = function(config) {
       dir: 'build/reports/coverage',
       reporters: [
         { type: 'html', subdir: 'report-html' },
-        { type: 'lcov', subdir: 'report-lcov' },
-        { type: 'cobertura', subdir: '.', file: 'cobertura.txt' }
       ]
     },
     webpack: webpackConfig,
