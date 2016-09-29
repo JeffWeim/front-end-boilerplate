@@ -19,7 +19,7 @@ const reload = browserSync.reload;
 
 // PostCSS Config Array
 const postCSSConfig = [
-  require('postcss-import')(), //PostCSS plugin to inline @import rules content
+  require('postcss-import')(), // PostCSS plugin to inline @import rules content
   require('postcss-cssnext')(), // Use tomorrow's CSS syntax, today
   require('precss')() // Sass-like markup in your CSS
 ];
