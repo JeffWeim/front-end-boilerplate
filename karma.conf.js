@@ -80,7 +80,7 @@ module.exports = function(config) {
     concurrency: Infinity,
 
     coverageReporter: {
-      dir: 'build/reports/coverage',
+      dir: 'reports/coverage',
       reporters: [
         { type: 'html', subdir: 'report-html' },
       ]
