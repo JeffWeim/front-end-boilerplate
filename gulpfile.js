@@ -111,7 +111,6 @@ gulp.task('lint', () => {
 
 
 // SASS styles
-/*
 gulp.task('styles', () => {
   return gulp.src(config.styles.src)
     .pipe(sourcemaps.init())
@@ -126,15 +125,16 @@ gulp.task('styles', () => {
     .pipe(gulp.dest(config.styles.dest))
     .pipe(gulpif(config.dev, reload({ stream: true })));
 });
-*/
 
 // PostCSS Styles
+/*
 gulp.task('styles', () => {
   return gulp.src(config.styles.src)
     .pipe(postcss(postCSSConfig))
     .pipe(gulpif(config.dev, reload({ stream: true })))
     .pipe(gulp.dest(config.styles.dest));
 });
+*/
 
 
 // images

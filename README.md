@@ -140,7 +140,7 @@ assemble({
 ## PostCSS vs SASS
 The `gulpfile.js` includes two `styles` tasks; one for SASS compilation and one for [PostCSS](https://github.com/postcss/postcss) compilation. You may choose to use either processor by simple commenting out/deleting the one you do not want.
 
-*Note* Because this project is set up to use PostCSS out-of-the-box, if you'd rather use SASS, you must change the file extension of `src/assets/styles/main.css` to `src/assets/styles/main.scss`.
+**SASS is the default in the** `gulpfile.js`
 
 
 ## Unit Testing
