@@ -74,10 +74,17 @@ module.exports = function (config) {
 		},
 		devtool: config.dev ? '#inline-source-map' : '',
 		module: {
-			loaders: getLoaders(config.dev)
+			loaders: getLoaders(config.dev),
+			preLoaders: [{
+			  test: /\.js$/, 
+			  exclude: /(node_modules|tests)/,
+			  loader: 'istanbul-instrumenter',
+			  query: {
+			    esModules: true
+			  }
+			}],
 		},
 		plugins: getPlugins(config.dev),
 		cache: {}
 	};
-
 };

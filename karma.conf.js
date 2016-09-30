@@ -1,18 +1,12 @@
 let webpack = require('karma-webpack'),
-  config = {
-    scripts : {
-      src: './src/assets/scripts/main',
-      dest: 'dist/assets/scripts'  
+    config = {
+      scripts : {
+        src: './src/assets/scripts/main',
+        dest: 'dist/assets/scripts'  
+      },
+      dev: true
     },
-    dev: true
-  },
-  webpackConfig = require('./webpack.config.js')(config);
-
-webpackConfig.module.postLoaders = [{
-  test: /\.js$/, 
-  exclude: /(node_modules|tests)/,
-  loader: 'istanbul-instrumenter'
-}];
+    webpackConfig = require('./webpack.config.js')(config);
 
 // Karma configuration
 module.exports = function(config) {
@@ -23,11 +17,18 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine-jquery', 'jasmine-ajax', 'jasmine'],
 
     // list of files / patterns to load in the browser
     files: [
-      'tests/**/*.spec.js'
+      'tests/**/*.spec.js',
+      'node_modules/jquery/dist/jquery.js',
+      {
+        pattern: 'tests/fixtures/**/*.html',
+        watched: true,
+        included: false,
+        served: true
+      }
     ],
 
     // list of files to exclude
@@ -35,7 +36,9 @@ module.exports = function(config) {
     ],
 
     plugins: [
-      webpack, 
+      webpack,
+      'karma-jasmine-jquery',
+      'karma-jasmine-ajax',
       'karma-jasmine',
       'karma-coverage',
       'karma-spec-reporter',
@@ -46,7 +49,7 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'tests/**/*spec.js': ['webpack'],
-      'src/**/*.js': ['webpack']
+      'src/**/*.js': ['webpack', 'coverage']
     },
 
     // test results reporter to use
@@ -82,10 +85,15 @@ module.exports = function(config) {
     coverageReporter: {
       dir: 'reports/coverage',
       reporters: [
-        { type: 'html', subdir: 'report-html' },
+        { 
+          type: 'html',
+          subdir: 'report-html' 
+        },
       ]
     },
+
     webpack: webpackConfig,
+
     webpackMiddleware: { noInfo: true }
   })
 }
