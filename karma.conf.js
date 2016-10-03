@@ -39,6 +39,7 @@ module.exports = function(config) {
       webpack,
       'karma-jasmine-jquery',
       'karma-jasmine-ajax',
+      'karma-threshold-reporter',
       'karma-jasmine',
       'karma-coverage',
       'karma-spec-reporter',
@@ -55,7 +56,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: [ 'spec', 'coverage' ],
+    reporters: [ 'spec', 'coverage', 'threshold'],
 
     // web server port
     port: 9876,
@@ -89,7 +90,15 @@ module.exports = function(config) {
           type: 'html',
           subdir: 'report-html' 
         },
-      ]
+      ],
+      check: {
+        each: {
+          statements: 90,
+          lines: 90,
+          functions: 90,
+          branches: 95
+        }
+      }
     },
 
     webpack: webpackConfig,
